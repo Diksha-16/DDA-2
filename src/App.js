@@ -4,7 +4,7 @@ import ContactUS from "./ContactUS";
 import SignUp from "./SignUp";
 import Footer from "./Footer";
 import CreatePost from "./pages/CreatePost";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import Features from "./Features";
 import AboutUs from "./AboutUs";
 import image from "./image.jpg";
@@ -43,10 +43,20 @@ function App() {
   return (
     <div className="App">
       <Router >
-        <Header />
-        <br />
-        <br />
-        <br />
+      <nav>
+        <Link to="/"> AboutUs </Link>
+        <Link to="/ContactUS"> ContactUS </Link>
+        <Link to="/Courses"> Courses </Link>
+        <Link to="/Home"> Home </Link>
+        {!isAuth ? (
+          <Link to="/login"> Login </Link>
+        ) : (
+          <>
+            <Link to="/createpost"> Create Post </Link>
+            <button onClick={signUserOut}> Log Out</button>
+          </>
+        )}
+      </nav>
 
         {/* <button onClick={signInWithGoogle}>Sign In With Google</button>
          <h1>{localStorage.getItem("name")}</h1>
@@ -54,11 +64,16 @@ function App() {
          <img src={localStorage.getItem("profilePic")}/> */}
         <Routes>
           {/* <Route exact path="/" element={<Home/>}/> */}
-          <Route exact path="/" element={<Header />} />
+          <Route exact path="/" element={<AboutUs />} />
+          <Route path="/Home" element={<Home isAuth={isAuth} />} />
+          <Route path="/Home" element={<Home isAuth={isAuth} />} />
           {/* <Route exact path="/Home" element={<Home/>}/> */}
           <Route exact path="SignUp" element={<SignUp />} />
-          <Route  path="Login" element={<Login />} />
+          <Route exact path="Courses" element={<Courses />} />
+
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route exact path="/ContactUS" element={<ContactUS />} />
+          <Route path="/createpost" element={<CreatePost isAuth={isAuth} />} />
           <Route exact path="/Features" element={<Features />} />
           <Route exact path="/Courses" element={<Courses />} />
           <Route exact path="/AboutUs" element={<AboutUs />} />

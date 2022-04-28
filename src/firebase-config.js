@@ -3,22 +3,20 @@ import {getFirestore} from "@firebase/firestore";
 import {getAuth, GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAeg9F_xyuu9PhyYfc4dtkEFmKtg0xyyk8",
-  authDomain: "auth-92437.firebaseapp.com",
-  projectId: "auth-92437",
-  storageBucket: "auth-92437.appspot.com",
-  messagingSenderId: "259945161107",
-  appId: "1:259945161107:web:2fa21132c07c655ef88866",
-  measurementId: "G-7RW1K641PK"
+  apiKey: "AIzaSyDrqwiafCgaDS1OmUp4Al6HCd7BZ_QPvUQ",
+  authDomain: "fir-project-f098d.firebaseapp.com",
+  projectId: "fir-project-f098d",
+  storageBucket: "fir-project-f098d.appspot.com",
+  messagingSenderId: "56191063853",
+  appId: "1:56191063853:web:dbecdde8f92380da22a5a4",
+  measurementId: "G-ZSHH57YCPX"
 };
 
-  const app =initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-  export const db=getFirestore(app);
-  export const auth=getAuth(app);
-
-  const provider=new GoogleAuthProvider()
- 
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 
 
   export const signInWithGoogle= () =>{
